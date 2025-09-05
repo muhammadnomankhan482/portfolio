@@ -1,5 +1,5 @@
-let menu = document.getElementById("menu-icon");
-let navbar = document.getElementById("navbar");
+var menu = document.getElementById("menu-icon");
+var navbar = document.getElementById("navbar");
 
 menu.onclick = () => {
     menu.classList.toggle("ri-close-line");
