@@ -233,51 +233,128 @@ span{
     margin: 2rem 0 3rem;
 }
 
-/* services section */
+/* skills section */
+.skills {
+    background: var(--bg-color);
+}
 
-.services h2{
+.skills h2 {
     margin-bottom: 5rem;
 }
 
-.services-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
 }
 
-.services-container .services-box{
-    flex: 1 1 30rem;
+.skill-category {
     background: var(--snd-bg-color);
-    padding: 6rem 2rem 6rem;
+    padding: 3rem;
     border-radius: 2rem;
-    text-align: center;
     border: 0.3rem solid var(--bg-color);
     transition: 0.3s ease;
 }
 
-.services-container .services-box:hover{
+.skill-category:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 127, 115, 0.1);
 }
 
-.services-box i{
-    font-size: 7rem;
+.skill-category h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
     color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 127, 115, 0.2);
 }
 
-.services-box h3{
-    font-size: 2.6rem;
+.skill-category h3 i {
+    font-size: 2.5rem;
 }
 
-.services-box p{
+.skill-item {
+    margin-bottom: 2.5rem;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.skill-info span {
     font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+    font-weight: 600;
 }
+
+.skill-info span:first-child {
+    color: var(--text-color);
+}
+
+.skill-info span:last-child {
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 1rem;
+    background: #e0e0e0;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 1rem;
+    background: var(--main-color);
+    transition: width 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Progress bar widths */
+.html { width: 95%; }
+.css { width: 90%; }
+.js { width: 88%; }
+.ts { width: 85%; }
+.git { width: 92%; }
+.responsive { width: 95%; }
 
 /* projects section */
-
 .projects{
     background: var(--snd-bg-color);
 }
@@ -295,12 +372,12 @@ span{
 }
 
 .projects-box img{
-    /* width: 25rem; */
     width: 90%;
     height: 50%;
     border-radius: 10%;
     border: 3px solid var(--main-color);
     box-shadow: 0 0 25px var(--main-color);
+    margin-bottom: 1rem;
 }
 
 .wrapper{
@@ -310,7 +387,7 @@ span{
 }
 
 .projects-item{
-    min-height: 450px;
+    min-height: 500px;
     max-width: 450px;
     background: var(--bg-color);
     border: 0.3rem solid var(--bg-color);
@@ -320,9 +397,8 @@ span{
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
     color: var(--text-color);
     transition: 0.3s ease;
 }
@@ -330,22 +406,53 @@ span{
 .projects-item:hover{
     border-color: var(--main-color);
     transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 127, 115, 0.15);
+}
+
+.tech-stack{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.tech-stack span{
+    background: var(--main-color);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.tech-stack span:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 127, 115, 0.3);
 }
 
 .projects-item h2{
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    text-align: center;
 }
 
 .projects-item p{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.projects-item .btn{
+    margin-top: auto;
 }
 
 /* contact section */
-
 .contact{
     background: var(--bg-color);
 }
-/*  */
 
 .contact h2{
     margin-bottom: 3rem;
@@ -376,6 +483,12 @@ span{
     border: 0.25rem solid var(--main-color);
     margin: 0.7rem 0;
     resize: none;
+    transition: 0.3s ease;
+}
+
+.contact form .input-box input:focus,
+.contact form textarea:focus{
+    box-shadow: 0 0 15px rgba(0, 127, 115, 0.3);
 }
 
 .contact form .input-box input{
@@ -388,7 +501,6 @@ span{
 }
 
 /* footer section */
-
 .footer{
     position: relative;
     bottom: 0;
@@ -414,7 +526,6 @@ span{
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* align-content: center; */
     border-radius: 50%;
     margin: 0 10px;
     transition: 0.3s ease;
@@ -435,7 +546,6 @@ span{
 }
 
 /* responsive */
-
 @media(max-width: 1200px){
     html{
         font-size: 55%;
@@ -449,8 +559,8 @@ span{
     section{
         padding: 10rem 3%;
     }
-    .services{
-        padding: 7rem;
+    .skills-container{
+        grid-template-columns: repeat(2, 1fr);
     }
     .projects .wrapper{
         grid-template-columns: repeat(1,1fr);
@@ -515,8 +625,14 @@ span{
         height: 70vw;
         margin-top: 4rem;
     }
-    .services h2{
+    .skills h2{
         margin-bottom: 3rem;
+    }
+    .skills-container{
+        grid-template-columns: 1fr;
+    }
+    .skill-category{
+        padding: 2.5rem;
     }
 }
 
@@ -529,10 +645,35 @@ span{
         width: 70vw;
         margin-top: 4rem;
     }
+    .projects-item{
+        margin: 0 1rem;
+        padding: 15px;
+    }
+    .skill-category h3{
+        font-size: 2rem;
+    }
+    .skill-info span{
+        font-size: 1.5rem;
+    }
 }
 
 @media(max-width:617px){
     html{
         font-size: 50%;
+    }
+    .home-content h1{
+        font-size: 4rem;
+    }
+    .heading{
+        font-size: 4.5rem;
+    }
+    .projects-item{
+        min-height: 450px;
+    }
+    .skill-category{
+        padding: 2rem;
+    }
+    .contact form .input-box input{
+        margin: 0.7rem 0;
     }
 }

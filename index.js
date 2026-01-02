@@ -17,7 +17,7 @@ window.onscroll =() => {
 
 // Typed text animation
 const typedEl = document.getElementById('multiple-text');
-const phrases = ['Frontend Developer', 'Backend Developer', 'App Developer'];
+const phrases = ['Senior Frontend Developer'];
 let pi = 0, li = 0, typing = true;
 function type() {
     if (typing) {
